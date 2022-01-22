@@ -3,7 +3,6 @@ const $button = document.querySelector('button');
 const $input = document.querySelector('input');
 const $word = document.querySelector('#word');
 const $order = document.querySelector('#order');
-
 let word; // 제시어
 let newWord; // 새로 입력한 단어
 
@@ -24,7 +23,6 @@ const onClickButton = () => {
   $input.value = '';
   $input.focus();
 };
-
 const onInput = (event) => {
   newWord = event.target.value; // 입력한 단어를 현재 단어로
 };
