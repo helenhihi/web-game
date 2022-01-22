@@ -16,7 +16,6 @@ const onClickNumber = (event) => {
   numTwo += event.target.textContent;
   $result.value += event.target.textContent;
 };
-
 document.querySelector('#num-0').addEventListener('click', onClickNumber);
 document.querySelector('#num-1').addEventListener('click', onClickNumber);
 document.querySelector('#num-2').addEventListener('click', onClickNumber);
@@ -36,7 +35,6 @@ const onClickOperator = (op) => () => {
     alert('숫자를 먼저 입력하세요.');
   }
 }
-
 document.querySelector('#plus').addEventListener('click', onClickOperator('+'));
 document.querySelector('#minus').addEventListener('click', onClickOperator('-'));
 document.querySelector('#divide').addEventListener('click', onClickOperator('/'));
