@@ -15,6 +15,7 @@ for (let n = 0; n < 4; n++) { // 네 번 반복
 console.log(answer);
 
 const tries = [];
+
 function checkInput(input) {
   if (input.length !== 4) { // 길이는 4가 아닌가
     return alert('4자리 숫자를 입력해 주세요.');
@@ -28,21 +29,25 @@ function checkInput(input) {
   return true;
 } // 검사하는 코드
 
+function defeated() {
+  const message = document.createTextNode(`패배! 정답은 ${answer.join('')}`);
+  $logs.appendChild(message);
+}
+
+let out = 0;
 $form.addEventListener('submit', (event) => {
   event.preventDefault();
   const value = $input.value;
   $input.value = '';
-  if (!checkInput(value)) {
-    return;
-  }
+  const valid = checkInput(value);
+  if (!valid) return;
   // 입력값 문제없음
   if (answer.join('') === value) { // [3, 1, 4, 6] -> '3146'
     $logs.textContent = '홈런!';
     return;
   }
   if (tries.length >= 9) {
-    const message = document.createTextNode(`패배! 정답은 ${answer.join('')}`);
-    $logs.appendChild(message);
+    defeated();
     return;
   }
   // 몇 스트라이크 몇 볼인지 검사
