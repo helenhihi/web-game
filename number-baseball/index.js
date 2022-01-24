@@ -68,7 +68,7 @@ $form.addEventListener('submit', (event) => {
     out++;
     $logs.append(`${value} : 아웃`, document.createElement('br'));
   } else {
-    $logs.append(`${value} : ${strike}스트라이크, ${ball}볼`, document.createElement('br'));
+    $logs.append(`${value} : ${strike}스트라이크 ${ball}볼`, document.createElement('br'));
   }
   if (out === 3) {
     defeated();
