@@ -8,7 +8,7 @@ for (let n = 0; n < 9; n++) {
 }
 const answer = []; // [3, 1, 4, 6]
 for (let n = 0; n < 4; n++) { // 네 번 반복
-  const index = Math.floor(Math.random() * (numbers.length - n)); // 0~8 정수
+  const index = Math.floor(Math.random() * numbers.length);
   answer.push(numbers[index]);
   numbers.splice(index, 1);
 }
