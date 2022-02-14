@@ -81,7 +81,7 @@ const clickButton = () => {
     } else if (computerScore >= 3) {
       $score.textContent = `컴퓨터의 승리 ${myScore}:${computerScore}`;
     } else {
-      $score.textContent = `${message} ${myScore}:${computerScore}`
+      $score.textContent = `${message} ${myScore}:${computerScore}`;
       setTimeout(() => {
         clickable = true;
         intervalId = setInterval(changeComputerHand, 50);
