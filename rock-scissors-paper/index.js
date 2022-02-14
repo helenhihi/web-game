@@ -24,7 +24,7 @@ const changeComputerHand = () => {
   }
   $computer.style.background = `url(${IMG_URL}) ${rspX[computerChoice]} 0`;
   $computer.style.backgroundSize = 'auto 200px';
-}
+};
 let intervalId = setInterval(changeComputerHand, 50);
 
 // clickButton 5번 호출, 인터벌 1번, 2번, 3번, 4번, 5번(얘만 intervalId)
@@ -37,11 +37,11 @@ const clickButton = () => {
     clearInterval(intervalId);
     clickable = false;
     // 결과를 화면에 표시
-    const myChoice = event.target.textContent === '바위' ?
-      'rock' :
-      event.target.textContent === '가위' ?
-      'scissors' :
-      'paper';
+    const myChoice = event.target.innerText === "바위"
+      ? "rock"
+      : event.target.innerText === "가위"
+        ? "scissors"
+        : "paper";
 
     let message;
     if (myChoice === 'rock') {
