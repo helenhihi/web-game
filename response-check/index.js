@@ -24,6 +24,13 @@ screen.addEventListener("click", (event) => { // screen과 event.target이 같�
     records.push(current);
     const average = records.reduce((a, c) => a + c) / records.length;
     result.innerText = `현재 ${current}ms, 평균: ${average}ms`;
+    const topFive = records.sort((p, c) => p - c).slice(0, 5);
+    topFive.forEach((top, index) => {
+      result.append(
+        document.createElement("br"),
+        `${index + 1}위: ${top}ms`,
+      );
+    });
     startTime = null;
     endTime = null;
     screen.classList.replace("now", "waiting");
