@@ -72,7 +72,12 @@ const checkWinnerAndDraw = (target) => {
   }
 };
 
+
+let clickable = true;
 const callback = (event) => {
+  if (!clickable) {
+    return;
+  }
   if (event.target.innerText !== "") { // 칸이 이미 채워져 있는가?
     console.log("빈칸이 아닙니다.");
     return;
@@ -82,12 +87,15 @@ const callback = (event) => {
   event.target.innerText = turn;
   // 승부 판단하기
   checkWinnerAndDraw(event.target);
-
   if (turn === "X") {
     const emptyCells = rows.flat().filter((v) => !v.innerText);
     const randomCell = emptyCells[Math.floor(Math.random() * emptyCells.length)]; 
-    randomCell.innerText = "X";
-    checkWinnerAndDraw(event.target);
+    clickable = false;
+    setTimeout(() => {
+      randomCell.innerText = "X";
+      checkWinnerAndDraw(event.target);
+      clickable = true;
+    }, 1000);
   }
 };
 
