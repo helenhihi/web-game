@@ -23,7 +23,7 @@ screen.addEventListener("click", (event) => { // screen과 event.target이 같�
     console.log(endTime, startTime);
     records.push(current);
     const average = records.reduce((a, c) => a + c) / records.length;
-    result.innerText = `현재 ${current}ms, 평균: ${average}ms`;
+    result.innerText = `현재: ${current}ms, 평균: ${average}ms`;
     const topFive = records.sort((p, c) => p - c).slice(0, 5);
     topFive.forEach((top, index) => {
       result.append(
