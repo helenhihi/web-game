@@ -282,6 +282,12 @@ class Hero extends Unit { // Hero의 부모 클래스는 Unit
   }
 }
 
+class Monster extends Unit {
+  constructor(game, name, hp, att, xp) {
+    super(game, name, hp, att, xp);
+  }
+}
+
 let game = null;
 startScreen.addEventListener("submit", (event) => {
   event.preventDefault();
