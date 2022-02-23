@@ -256,6 +256,32 @@ class Unit {
   }
 }
 
+class Hero extends Unit { // Hero의 부모 클래스는 Unit
+  constructor(game, name) {
+    super(game, name, 100, 10, 0); // 부모 클래스의 생성자 호출
+    this.lev = 1;
+  }
+  attack(target) {
+    super.attack(target); // 부모 클래스의 attack
+    // 부모 클래스 attack 외의 동작
+  }
+  heal(monster) {
+    this.hp += 20;
+    this.hp -= monster.att;
+  }
+  getXp(xp) {
+    this.xp += xp;
+    if (this.xp >= this.lev * 15) { // 경험치를 다 채우면
+      this.xp -= this.lev * 15; // xp: 5, lev: 2, maxXp: 15
+      this.lev += 1;
+      this.maxHp += 5;
+      this.att += 5;
+      this.hp = this.maxHp;
+      this.game.showMessage(`레벨업! 레벨 ${this.lev}`);
+    }
+  }
+}
+
 let game = null;
 startScreen.addEventListener("submit", (event) => {
   event.preventDefault();
