@@ -242,6 +242,20 @@ class Game {
   }
 }
 
+class Unit {
+  constructor(game, name, hp, att, xp) {
+    this.game = game;
+    this.name = name;
+    this.maxHp = hp;
+    this.hp = hp;
+    this.xp = xp;
+    this.att = att;
+  }
+  attack(target) {
+    target.hp -= this.att;
+  }
+}
+
 let game = null;
 startScreen.addEventListener("submit", (event) => {
   event.preventDefault();
